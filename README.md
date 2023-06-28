@@ -36,8 +36,4 @@ Este projeto utiliza a API AwesomeAPI para obter as informações de conversão 
 
 ## Autor
 
-Seu Nome
-
-## Licença
-
-Este projeto está licenciado sob a [Licença XYZ](LICENSE).
+Luiz Felipe Massaneiro
