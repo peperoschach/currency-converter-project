@@ -1,0 +1,51 @@
+@use "sass:math";
+@import '../mixins/mixins';
+
+.container {
+  width: 100%;
+  padding-right: math.div($grid-gutter-width, 2);
+  padding-left: math.div($grid-gutter-width, 2);
+  margin-right: auto;
+  margin-left: auto;
+
+  @include media(sm) {
+    max-width: 540px;
+  }
+
+  @include media(md) {
+    max-width: 720px;
+  }
+
+  @include media(lg) {
+    max-width: 960px;
+  }
+
+  @include media(xl) {
+    max-width: 1140px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: calc(-1 * $grid-gutter-width / 2);
+  margin-left: -($grid-gutter-width / 2);
+}
+
+@each $breakpoint, $value in $grid-breakpoints {
+  @if $value != 0px {
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        @include media($breakpoint) {
+          flex: 0 0 calc(percentage($i / $grid-columns));
+          width: 100%;
+          max-width: calc(percentage(($i / $grid-columns)));
+          position: relative;
+          padding-right: math.div($grid-gutter-width, 2);
+          padding-left: math.div($grid-gutter-width, 2);
+        }
+      }
+    }
+  }
+}
+

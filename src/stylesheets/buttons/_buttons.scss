@@ -1,0 +1,46 @@
+@import '../variables/colors';
+
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: $color-button-background;
+  color: $color-text-basic;
+  font-family: $font-primary;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color-button-background, 10%);
+  }
+
+  &.primary {
+    background-color: $color-text-blue;
+    color: white;
+
+    &:hover {
+      background-color: darken($color-text-blue, 10%);
+    }
+  }
+
+  &.success {
+    background-color: $color-text-green;
+    color: white;
+
+    &:hover {
+      background-color: darken($color-text-green, 10%);
+    }
+  }
+
+  &.danger {
+    background-color: $color-text-red;
+    color: white;
+
+    &:hover {
+      background-color: darken($color-text-red, 10%);
+    }
+  }
+}

@@ -1,27 +1,43 @@
-# CurrencyConverterProject
+# Conversor de Moedas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
+Uma aplicação em Angular que converte três moedas para o Real Brasileiro (BRL).
 
-## Development server
+## Pré-requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js (<https://nodejs.org>)
+- Angular CLI (<https://cli.angular.io>)
 
-## Code scaffolding
+## Instalação
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone este repositório:
 
-## Build
+2. Navegue até o diretório do projeto:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Instale as dependências do projeto:
 
-## Running unit tests
+## Execução
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Inicie a aplicação em um servidor de desenvolvimento:
 
-## Running end-to-end tests
+2. Abra seu navegador e acesse `http://localhost:4200` para visualizar a aplicação.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Funcionalidades
 
-## Further help
+- A aplicação exibe a conversão de três moedas para o Real Brasileiro (BRL): Dólar Canadense (CAD), Peso Argentino (ARS) e Libra Esterlina (GBP).
+- É exibida a variação em porcentagem de cada moeda em relação ao Real Brasileiro.
+- A hora da última atualização é mostrada na página.
+- Valores menores ou iguais a R$1,00 são exibidos em vermelho, valores maiores que R$1,00 e menores ou iguais a R$5,00 são exibidos em verde, e valores maiores que R$5,00 são exibidos em azul.
+- As informações são cacheadas no front-end por 3 minutos e são atualizadas automaticamente a cada 3 minutos.
+- O cabeçalho da aplicação permanece fixo no topo, mesmo ao rolar a página.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## API de Moedas
+
+Este projeto utiliza a API AwesomeAPI para obter as informações de conversão de moedas. A documentação da API pode ser encontrada em: <https://docs.awesomeapi.com.br/api-de-moedas>
+
+## Autor
+
+Seu Nome
+
+## Licença
+
+Este projeto está licenciado sob a [Licença XYZ](LICENSE).

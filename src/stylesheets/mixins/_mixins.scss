@@ -1,0 +1,32 @@
+$grid-breakpoints: (
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+
+// Mixin para regras @media
+@mixin media($breakpoint) {
+  $value: map-get($grid-breakpoints, $breakpoint);
+  @if $value != 0px {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+@each $breakpoint, $value in $grid-breakpoints {
+  @if $value != 0px {
+    .col-#{$breakpoint} {
+      @include media($breakpoint) {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+    }
+  }
+}

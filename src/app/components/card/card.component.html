@@ -1,0 +1,48 @@
+<div class="card" *ngIf="currencyData">
+  <div class="card-header">
+    <h5 class="card-header__title text-basic">{{ formattedName(currencyData.name) }}</h5>
+  </div>
+  <div class="card-body">
+    <ng-container *ngIf="!isLoading || !error">
+      <h2 [ngClass]="{
+            'card-body__content': true,
+            'text-red': parseCurrencyValue(currencyData.bid) <= 1,
+            'text-green': parseCurrencyValue(currencyData.bid) > 1 && parseCurrencyValue(currencyData.bid) <= 5,
+            'text-blue': parseCurrencyValue(currencyData.bid) > 5
+          }">
+        R$ {{ currencyData.bid ? (currencyData.bid | currency:'BRL') : '-' }}
+      </h2>
+    </ng-container>
+    <ng-container *ngIf="error">
+      <p>Algo deu errado.</p>
+      <button class="button" (click)="handleReloadCurrency()">Recarregar</button>
+    </ng-container>
+    <ng-container *ngIf="isLoading">
+      <div class="loading-spinner">
+        <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M80 11.6987C70.4527 6.18661 59.3514 3.98432 48.4229 5.43446C37.4945 6.8846 27.3517 11.9059 19.5724 19.7171C11.793 27.5284 6.81333 37.6917 5.40795 48.6259C4.00257 59.5602 6.25029 70.6525 11.8015 80.1771C17.3526 89.7017 25.896 97.1247 36.1025 101.291C46.309 105.458 57.6065 106.135 68.2373 103.216C78.8682 100.297 88.2364 93.947 94.8847 85.1531C101.533 76.3591 105.089 65.6144 104.998 54.5906" stroke="#717171" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </ng-container>
+  </div>
+  <div class="card-footer" *ngIf="!isLoading || !error">
+    <div class="card-footer__content">
+      <p class="card-footer__content--title text-secondary">
+        Variação (%)
+      </p>
+      <p class="card-footer__content--text text-basic">
+        {{ currencyData.pctChange || '-' }}
+      </p>
+    </div>
+    <div class="card-footer__separator"></div>
+    <div class="card-footer__content">
+      <p class="card-footer__content--title text-secondary">
+        Atualizado
+      </p>
+      <p class="card-footer__content--text text-basic">
+        {{ formattedDateCreate(currencyData.create_date) }}
+      </p>
+    </div>
+  </div>
+</div>
+

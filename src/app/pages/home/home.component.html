@@ -1,0 +1,16 @@
+<app-header></app-header>
+<div class="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <app-card [currencyCode]="currencyCode['CAD']" (reloadCurrencyCode)="handleReloadCurrency('CAD', $event)"></app-card>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <app-card [currencyCode]="currencyCode['ARS']" (reloadCurrencyCode)="handleReloadCurrency('ARS', $event)"></app-card>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <app-card [currencyCode]="currencyCode['GBP']" (reloadCurrencyCode)="handleReloadCurrency('GBP', $event)"></app-card>
+      </div>
+    </div>
+  </div>
+</div>
