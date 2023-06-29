@@ -9,7 +9,6 @@ import { CurrencyService } from './currency.service';
   declarations: [],
   imports: [
     CommonModule,
-    CommonModule,
     HttpClientModule
   ],
   providers: [
