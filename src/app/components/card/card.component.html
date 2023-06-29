@@ -10,7 +10,7 @@
             'text-green': parseCurrencyValue(currencyData.bid) > 1 && parseCurrencyValue(currencyData.bid) <= 5,
             'text-blue': parseCurrencyValue(currencyData.bid) > 5
           }">
-        R$ {{ currencyData.bid ? (currencyData.bid | currency:'BRL') : '-' }}
+        {{ currencyData.bid ? (currencyData.bid | currency:'BRL') : '-' }}
       </h2>
     </ng-container>
     <ng-container *ngIf="error">

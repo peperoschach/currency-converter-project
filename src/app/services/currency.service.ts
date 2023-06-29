@@ -22,8 +22,8 @@ export class CurrencyService {
       return of(this.currencyData!);
     } else {
       return this.fetchCurrencyData(code).pipe(
-        switchMap(data => {
-          this.currencyData = data;
+        switchMap((data: CurrencyCard[]) => {
+          this.currencyData = data[0];
           this.lastUpdate = Date.now();
           return of(this.currencyData!);
         })
@@ -31,8 +31,8 @@ export class CurrencyService {
     }
   }
 
-  private fetchCurrencyData(code: string): Observable<CurrencyCard> {
-    return this.http.get<CurrencyCard>(`${this.apiUrl}/${code}`);
+  private fetchCurrencyData(code: string): Observable<CurrencyCard[]> {
+    return this.http.get<CurrencyCard[]>(`${this.apiUrl}/${code}`);
   }
 
   private isCacheValid(): boolean {
